@@ -11,6 +11,7 @@ import colors from './src/utils/colors';
 import Form from './src/components/Forms';
 import Result from './src/components/Result';
 
+import Icon from 'react-native-vector-icons/FontAwesome';
 export default function App() {
 
   const [tamano, setTamano] = useState(null);
@@ -90,7 +91,7 @@ export default function App() {
     <>
     <StatusBar barStyle="light-content" />
     <SafeAreaView style={styles.Header}>
-        <Text style={styles.HeadApp}>StarBosco APP</Text>
+        <Text style={styles.HeadApp}>StarBosco APP     <Icon name="coffee" size={30}  /> </Text>
         <Form
           setTamano={setTamano}
           setTipo={setTipo}
@@ -108,7 +109,7 @@ export default function App() {
       />
       <View style={styles.viewFooter}>
             <TouchableOpacity style={styles.button} onPress={calculate} >
-                <Text style={styles.text}>CALCULAR</Text>
+                <Text style={styles.text}>CALCULAR  <Icon name="hand-o-up" size={30}  /> </Text>
             </TouchableOpacity>
        </View>
     </>

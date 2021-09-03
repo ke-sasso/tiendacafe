@@ -1,20 +1,19 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
+import Icon from 'react-native-vector-icons/FontAwesome';
+
 export default function Result(props) {
     const { cantidad, nameTamano, nameTipo,namePago, total, errorMessage } = props;
     return (
         <View style={styles.content}>
             {total && (<View style={styles.boxResult}>
                 <Text style={styles.title}>RESUMEN</Text>
-                <DataResult title="Cantidad solicitada:" value={`${cantidad}`} />
-                <DataResult title="Tamaño:" value={`${nameTamano}`} />
-                <DataResult title="Tipo café:" value={`${nameTipo}`} />
-                <DataResult title="Tipo de pago:" value={`${namePago}`} />
-                <DataResult title="Descuento %:" value={`$${total.descuetototal}`} />
-                <DataResult
-                    title="Total a pagar:"
-                    value={`$${total.pagar}`}
-                />
+                <DataResult icon="hashtag" title="Cantidad solicitada:" value={`${cantidad}`} />
+                <DataResult icon="cube"  title="Tamaño:" value={`${nameTamano}`} />
+                <DataResult icon="coffee"  title="Tipo café:" value={`${nameTipo}`} />
+                <DataResult icon="money" title="Tipo de pago:" value={`${namePago}`} />
+                <DataResult icon="usd"  title="Descuento %:" value={`$${total.descuetototal}`} />
+                <DataResult icon="dollar" title="Total a pagar:" value={`$${total.pagar}`}/>
             </View>
             )}
             <View>
@@ -24,9 +23,10 @@ export default function Result(props) {
     );
 }
 function DataResult(props) {
-    const { title, value } = props;
+    const { icon, title, value } = props;
     return (
         <View style={styles.value}>
+            <Icon name={`${icon}`} size={30}  /> 
             <Text>{title}</Text>
             <Text>{value}</Text>
         </View>
